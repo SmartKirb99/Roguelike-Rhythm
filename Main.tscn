@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3qa4es7gmyix"]
+
+[ext_resource type="PackedScene" uid="uid://dup88req310ht" path="res://BackGrounf.tscn" id="1_k6vsn"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Background" parent="." instance=ExtResource("1_k6vsn")]
