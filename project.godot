@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="Roguelike Rhythm"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scenes/Main/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Images/icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"

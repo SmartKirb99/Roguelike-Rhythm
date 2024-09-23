@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgpfktau3iiq1"]
+
+[ext_resource type="Texture2D" uid="uid://irmandyv3bwu" path="res://Roguelike Rhythm Assets/Save Panel/Save No 1.png" id="1_kf3yo"]
+[ext_resource type="Texture2D" uid="uid://cc2552cadi16y" path="res://Roguelike Rhythm Assets/Buttons/Continue/Continue Button.png" id="2_0gael"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Save Container" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Save 1" type="HBoxContainer" parent="Save Container"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Save Container/Save 1"]
+layout_mode = 2
+texture = ExtResource("1_kf3yo")
+
+[node name="Continue" type="Button" parent="Save Container/Save 1"]
+layout_mode = 2
+icon = ExtResource("2_0gael")
+
+[node name="Delete" type="Button" parent="Save Container/Save 1"]
+layout_mode = 2
+
+[node name="New" type="Button" parent="Save Container/Save 1"]
+layout_mode = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3qa4es7gmyix"]
 
-[ext_resource type="PackedScene" uid="uid://dup88req310ht" path="res://BackGrounf.tscn" id="1_k6vsn"]
+[ext_resource type="PackedScene" uid="uid://dup88req310ht" path="res://Scenes/Background/BackGrounf.tscn" id="1_5gv6p"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,4 +21,4 @@ render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
 
-[node name="Background" parent="." instance=ExtResource("1_k6vsn")]
+[node name="Background" parent="." instance=ExtResource("1_5gv6p")]
