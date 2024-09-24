@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgpfktau3iiq1"]
+[gd_scene load_steps=10 format=3 uid="uid://bgpfktau3iiq1"]
 
 [ext_resource type="Texture2D" uid="uid://irmandyv3bwu" path="res://Roguelike Rhythm Assets/Save Panel/Save No 1.png" id="1_kf3yo"]
 [ext_resource type="Texture2D" uid="uid://cc2552cadi16y" path="res://Roguelike Rhythm Assets/Buttons/Continue/Continue Button.png" id="2_0gael"]
 [ext_resource type="Texture2D" uid="uid://de1h5djyodccw" path="res://Roguelike Rhythm Assets/Buttons/Delete/Delete Save Button.png" id="3_e8myn"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueSave1.gd" id="3_wnxx2"]
 [ext_resource type="Texture2D" uid="uid://dguh4xejtmm8w" path="res://Roguelike Rhythm Assets/Buttons/New/New Save Button.png" id="4_wk653"]
 [ext_resource type="Texture2D" uid="uid://dtewimr4nq4lc" path="res://Roguelike Rhythm Assets/Save Panel/Save No 2.png" id="5_5cips"]
 [ext_resource type="Texture2D" uid="uid://bf0nov6h7bggy" path="res://Roguelike Rhythm Assets/Save Panel/Save No 3.png" id="6_cjbdn"]
@@ -34,6 +35,7 @@ texture = ExtResource("1_kf3yo")
 [node name="Continue" type="Button" parent="Save Container/Save 1"]
 layout_mode = 2
 icon = ExtResource("2_0gael")
+script = ExtResource("3_wnxx2")
 
 [node name="Delete" type="Button" parent="Save Container/Save 1"]
 layout_mode = 2
