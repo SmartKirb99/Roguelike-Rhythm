@@ -15,7 +15,7 @@ run/main_scene="res://Scenes/Main/title_screen.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=30
-boot_splash/show_image=false
+boot_splash/image="res://Images/Background.png"
 config/icon="res://Images/icon.svg"
 
 [display]
