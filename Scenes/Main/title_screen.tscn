@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cci6j1nuln4vi"]
+
+[ext_resource type="Texture2D" uid="uid://dp0co1h2jun8p" path="res://Roguelike Rhythm Assets/Menu Stuff/Title/Icon/Title.png" id="1_x3rge"]
+[ext_resource type="Texture2D" uid="uid://ckj8twrtmr0bj" path="res://Roguelike Rhythm Assets/Menu Stuff/Title/Button/Start Menu Button.png" id="2_c1fcg"]
+[ext_resource type="Script" path="res://Scenes/Main/ToTheSave.gd" id="3_bgaw4"]
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pixil-frame-0" type="Sprite2D" parent="."]
+position = Vector2(577, 151)
+scale = Vector2(7.25455, 3.70727)
+texture = ExtResource("1_x3rge")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 424.0
+offset_right = 518.0
+offset_bottom = 457.0
+scale = Vector2(4, 4)
+icon = ExtResource("2_c1fcg")
+script = ExtResource("3_bgaw4")
