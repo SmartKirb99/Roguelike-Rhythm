@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ts2rsb4irlc"]
+
+[ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueTest.gd" id="1_nxnql"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 312.0
+offset_bottom = 653.0
+placeholder_text = "Run Character:
+
+New Note Tiles Complete: 
+
+Boss Tiles Complete: 
+
+Shop Tiles Complete: 
+
+Note Upgrade Tiles Complete: 
+
+Note Downgrade Tiles Complete: 
+
+Song Tiles Complete: 
+
+Vibe Points: NaN
+
+Vibe Points Max: NaN
+
+Obtained Notes: 
+
+Cards Obtained: 
+
+Save File Number: "
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+script = ExtResource("1_nxnql")

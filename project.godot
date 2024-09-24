@@ -12,7 +12,10 @@ config_version=5
 
 config/name="Roguelike Rhythm"
 run/main_scene="res://Scenes/Main/title_screen.tscn"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=30
+boot_splash/show_image=false
 config/icon="res://Images/icon.svg"
 
 [display]
