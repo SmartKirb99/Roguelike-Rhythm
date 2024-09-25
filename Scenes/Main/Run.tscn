@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4ts2rsb4irlc"]
+[gd_scene load_steps=3 format=3 uid="uid://4ts2rsb4irlc"]
 
 [ext_resource type="Script" path="res://Scenes/Main/ReadData.gd" id="1_h8b88"]
+[ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="2_3ga0y"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -46,3 +47,10 @@ drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 script = ExtResource("1_h8b88")
+
+[node name="Global" parent="." instance=ExtResource("2_3ga0y")]
+layout_mode = 1
+offset_left = 1388.0
+offset_top = 344.0
+offset_right = 1388.0
+offset_bottom = 344.0

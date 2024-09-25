@@ -1,8 +1,11 @@
 extends TextEdit
 
 
+
+
 func _ready():
-	pass # Replace with function body.
+	pass
+	
 	
 
 func load_data_from_file(file_path: String):
@@ -19,5 +22,5 @@ func load_data_from_file(file_path: String):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	TextEdit.
 

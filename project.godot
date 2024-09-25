@@ -18,6 +18,12 @@ run/max_fps=30
 boot_splash/image="res://Images/Background.png"
 config/icon="res://Images/icon.svg"
 
+[autoload]
+
+ContinueSave1="*res://Scenes/SaveSelect/ContinueSave1.gd"
+ContinueTest="*res://Scenes/SaveSelect/ContinueTest.gd"
+Global="*res://Scenes/MajorScripts/global.gd"
+
 [display]
 
 window/stretch/mode="viewport"

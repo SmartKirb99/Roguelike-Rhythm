@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfovinrn7h4vd"]
+
+[sub_resource type="GDScript" id="GDScript_vg1q7"]
+script/source = "extends Node
+
+
+func _ready():
+	pass
+
+# Called when the node enters the scene tree for the first time.
+func load_data_from_file(file_path: String):
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file:
+		var data = file.get_as_text()
+		file.close()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+"
+
+[node name="Global" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1244.0
+offset_top = 10.0
+offset_right = -1244.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_vg1q7")

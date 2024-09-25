@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cci6j1nuln4vi"]
+[gd_scene load_steps=5 format=3 uid="uid://cci6j1nuln4vi"]
 
-[ext_resource type="Texture2D" uid="uid://dp0co1h2jun8p" path="res://Roguelike Rhythm Assets/Menu Stuff/Title/Icon/Title.png" id="1_x3rge"]
-[ext_resource type="Texture2D" uid="uid://ckj8twrtmr0bj" path="res://Roguelike Rhythm Assets/Menu Stuff/Title/Button/Start Menu Button.png" id="2_c1fcg"]
+[ext_resource type="Texture2D" uid="uid://dp0co1h2jun8p" path="res://RoguelikeRhythmAssets/Menu Stuff/Title/Icon/Title.png" id="1_fx5lg"]
+[ext_resource type="Texture2D" uid="uid://ckj8twrtmr0bj" path="res://RoguelikeRhythmAssets/Menu Stuff/Title/Button/Start Menu Button.png" id="2_v1e7n"]
 [ext_resource type="Script" path="res://Scenes/Main/ToTheSave.gd" id="3_bgaw4"]
+[ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="4_mtxro"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -15,7 +16,7 @@ grow_vertical = 2
 [node name="Pixil-frame-0" type="Sprite2D" parent="."]
 position = Vector2(577, 151)
 scale = Vector2(7.25455, 3.70727)
-texture = ExtResource("1_x3rge")
+texture = ExtResource("1_fx5lg")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -24,5 +25,12 @@ offset_top = 424.0
 offset_right = 518.0
 offset_bottom = 457.0
 scale = Vector2(4, 4)
-icon = ExtResource("2_c1fcg")
+icon = ExtResource("2_v1e7n")
 script = ExtResource("3_bgaw4")
+
+[node name="Global" parent="." instance=ExtResource("4_mtxro")]
+layout_mode = 1
+offset_left = 1534.0
+offset_top = 163.0
+offset_right = 1534.0
+offset_bottom = 163.0

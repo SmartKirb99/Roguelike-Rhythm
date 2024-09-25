@@ -1,7 +1,6 @@
-extends Button
+extends Node
 
-# Public variable
-var ContinueSave1: String = "1"
+var whatSave = ""
 
 var run_character = "Guy"
 var new_note_tiles_complete: int = 0
@@ -16,27 +15,23 @@ var obtained_notes: Array = ["Normal"]
 var cards_obtained: Dictionary = {}
 var save_file_number: String = "1"
 
-
-
 func _ready():
-	self.connect("pressed", Callable(self, "_on_Button_pressed"))
-	
-	
-func _on_Button_pressed():
-	Global.whatSave = "1"
-	load_data_from_file("res://Data/Saves/Save1/RunData.rrsv")
-	get_tree().change_scene_to_file("res://Scenes/Main/Run.tscn")
-	
-	
+	if whatSave == "1":
+		load_data_from_file("res://Data/Saves/Save1/RunData.rrsv")
+	elif whatSave == "T":
+		load_data_from_file("res://Data/Saves/SaveTest/RunData.rrsv")
 
+# Called when the node enters the scene tree for the first time.
 func load_data_from_file(file_path: String):
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file:
 		var data = file.get_as_text()
 		file.close()
-		parse_rrsv_data(data)
-	else:
-		print("File not found: ", file_path)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
 
 func parse_rrsv_data(data: String):
 	var lines = data.split("\n")
@@ -81,3 +76,36 @@ func parse_cards(data: String) -> Dictionary:
 			var card_count = card_parts[1].to_int()
 			cards[card_name] = card_count
 	return cards
+
+func save_data_to_file(file_path: String):
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	if file:
+		file.store_string("Run Character: %s\n" % run_character)
+		file.store_string("New Note Tiles Complete: %d\n" % new_note_tiles_complete)
+		file.store_string("Boss Tiles Complete: %d\n" % boss_tiles_complete)
+		file.store_string("Shop Tiles Complete: %d\n" % shop_tiles_complete)
+		file.store_string("Note Upgrade Tiles Complete: %d\n" % note_upgrade_tiles_complete)
+		file.store_string("Note Downgrade Tiles Complete: %d\n" % note_downgrade_tiles_complete)
+		file.store_string("Song Tiles Complete: %d\n" % song_tiles_complete)
+		file.store_string("Vibe Points: %d\n" % vibe_points)
+		file.store_string("Vibe Points Max: %d\n" % vibe_points_max)
+		file.store_string("Obtained Notes: %s\n" % array_to_string(obtained_notes))
+		file.store_string("Cards Obtained: %s\n" % format_cards(cards_obtained))
+		file.store_string("Save File Number: %s\n" % save_file_number)
+		file.close()
+	else:
+		print("Failed to open file for writing: ", file_path)
+
+func array_to_string(arr: Array) -> String:
+	var result = ""
+	for i in range(arr.size()):
+		result += arr[i]
+		if i < arr.size() - 1:
+			result += ", "
+	return result
+
+func format_cards(cards: Dictionary) -> String:
+	var card_strings = []
+	for card_name in cards.keys():
+		card_strings.append("%s * %d" % [card_name, cards[card_name]])
+	return array_to_string(card_strings)

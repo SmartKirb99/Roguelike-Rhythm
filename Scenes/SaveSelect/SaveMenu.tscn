@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgpfktau3iiq1"]
+[gd_scene load_steps=11 format=3 uid="uid://bgpfktau3iiq1"]
 
-[ext_resource type="Texture2D" uid="uid://irmandyv3bwu" path="res://Roguelike Rhythm Assets/Save Panel/Save No 1.png" id="1_kf3yo"]
-[ext_resource type="Texture2D" uid="uid://cc2552cadi16y" path="res://Roguelike Rhythm Assets/Buttons/Continue/Continue Button.png" id="2_0gael"]
-[ext_resource type="Texture2D" uid="uid://de1h5djyodccw" path="res://Roguelike Rhythm Assets/Buttons/Delete/Delete Save Button.png" id="3_e8myn"]
+[ext_resource type="Texture2D" uid="uid://irmandyv3bwu" path="res://RoguelikeRhythmAssets/Save Panel/Save No 1.png" id="1_pjwkl"]
+[ext_resource type="Texture2D" uid="uid://cc2552cadi16y" path="res://RoguelikeRhythmAssets/Buttons/Continue/Continue Button.png" id="2_6aoqu"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueSave1.gd" id="3_wnxx2"]
-[ext_resource type="Texture2D" uid="uid://dguh4xejtmm8w" path="res://Roguelike Rhythm Assets/Buttons/New/New Save Button.png" id="4_wk653"]
-[ext_resource type="Texture2D" uid="uid://dtewimr4nq4lc" path="res://Roguelike Rhythm Assets/Save Panel/Save No 2.png" id="5_5cips"]
-[ext_resource type="Texture2D" uid="uid://bf0nov6h7bggy" path="res://Roguelike Rhythm Assets/Save Panel/Save No 3.png" id="6_cjbdn"]
-[ext_resource type="Texture2D" uid="uid://cvwjxaqb5pilr" path="res://Roguelike Rhythm Assets/Save Panel/Save Test.png" id="7_1nm4u"]
+[ext_resource type="Texture2D" uid="uid://de1h5djyodccw" path="res://RoguelikeRhythmAssets/Buttons/Delete/Delete Save Button.png" id="4_roh33"]
+[ext_resource type="Texture2D" uid="uid://dguh4xejtmm8w" path="res://RoguelikeRhythmAssets/Buttons/New/New Save Button.png" id="5_w6i3j"]
+[ext_resource type="Texture2D" uid="uid://dtewimr4nq4lc" path="res://RoguelikeRhythmAssets/Save Panel/Save No 2.png" id="6_5i1lb"]
+[ext_resource type="Texture2D" uid="uid://bf0nov6h7bggy" path="res://RoguelikeRhythmAssets/Save Panel/Save No 3.png" id="7_eqpor"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueTest.gd" id="8_4nqnq"]
+[ext_resource type="Texture2D" uid="uid://cvwjxaqb5pilr" path="res://RoguelikeRhythmAssets/Save Panel/Save Test.png" id="8_fp3l2"]
+[ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="10_uwyul"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -30,75 +31,82 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Save Container/Save 1"]
 layout_mode = 2
-texture = ExtResource("1_kf3yo")
+texture = ExtResource("1_pjwkl")
 
 [node name="Continue" type="Button" parent="Save Container/Save 1"]
 layout_mode = 2
-icon = ExtResource("2_0gael")
+icon = ExtResource("2_6aoqu")
 script = ExtResource("3_wnxx2")
 
 [node name="Delete" type="Button" parent="Save Container/Save 1"]
 layout_mode = 2
-icon = ExtResource("3_e8myn")
+icon = ExtResource("4_roh33")
 
 [node name="New" type="Button" parent="Save Container/Save 1"]
 layout_mode = 2
-icon = ExtResource("4_wk653")
+icon = ExtResource("5_w6i3j")
 
 [node name="Save 2" type="HBoxContainer" parent="Save Container"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Save Container/Save 2"]
 layout_mode = 2
-texture = ExtResource("5_5cips")
+texture = ExtResource("6_5i1lb")
 
 [node name="Continue" type="Button" parent="Save Container/Save 2"]
 layout_mode = 2
-icon = ExtResource("2_0gael")
+icon = ExtResource("2_6aoqu")
 
 [node name="Delete" type="Button" parent="Save Container/Save 2"]
 layout_mode = 2
-icon = ExtResource("3_e8myn")
+icon = ExtResource("4_roh33")
 
 [node name="New" type="Button" parent="Save Container/Save 2"]
 layout_mode = 2
-icon = ExtResource("4_wk653")
+icon = ExtResource("5_w6i3j")
 
 [node name="Save 3" type="HBoxContainer" parent="Save Container"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Save Container/Save 3"]
 layout_mode = 2
-texture = ExtResource("6_cjbdn")
+texture = ExtResource("7_eqpor")
 
 [node name="Continue" type="Button" parent="Save Container/Save 3"]
 layout_mode = 2
-icon = ExtResource("2_0gael")
+icon = ExtResource("2_6aoqu")
 
 [node name="Delete" type="Button" parent="Save Container/Save 3"]
 layout_mode = 2
-icon = ExtResource("3_e8myn")
+icon = ExtResource("4_roh33")
 
 [node name="New" type="Button" parent="Save Container/Save 3"]
 layout_mode = 2
-icon = ExtResource("4_wk653")
+icon = ExtResource("5_w6i3j")
 
 [node name="Save Test" type="HBoxContainer" parent="Save Container"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Save Container/Save Test"]
 layout_mode = 2
-texture = ExtResource("7_1nm4u")
+texture = ExtResource("8_fp3l2")
 
 [node name="Continue" type="Button" parent="Save Container/Save Test"]
 layout_mode = 2
-icon = ExtResource("2_0gael")
+icon = ExtResource("2_6aoqu")
 script = ExtResource("8_4nqnq")
 
 [node name="Delete" type="Button" parent="Save Container/Save Test"]
 layout_mode = 2
-icon = ExtResource("3_e8myn")
+icon = ExtResource("4_roh33")
 
 [node name="New" type="Button" parent="Save Container/Save Test"]
 layout_mode = 2
-icon = ExtResource("4_wk653")
+icon = ExtResource("5_w6i3j")
+
+[node name="Global" parent="." instance=ExtResource("10_uwyul")]
+layout_mode = 1
+offset_left = 1265.0
+offset_top = 777.0
+offset_right = 1265.0
+offset_bottom = 777.0

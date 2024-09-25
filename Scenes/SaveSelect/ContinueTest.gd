@@ -1,5 +1,7 @@
 extends Button
 
+@export var ContinueTest: String = "T"
+
 var run_character: String = "Template"
 var new_note_tiles_complete: int = 0
 var boss_tiles_complete: int = 0
@@ -15,9 +17,13 @@ var save_file_number: String = "T"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_data_from_file("res://Data/Saves/Save Test/RunData.rrsv")
+	self.connect("pressed", Callable(self, "_on_Button_pressed"))
+	load_data_from_file("res://Data/Saves/SaveTest/RunData.rrsv")
 
-
+func _on_Button_pressed():
+	Global.whatSave = "T"
+	get_tree().change_scene_to_file("res://Scenes/Main/Run.tscn")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
