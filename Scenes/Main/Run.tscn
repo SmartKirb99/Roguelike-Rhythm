@@ -13,7 +13,7 @@ grow_vertical = 2
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
-offset_right = 312.0
+offset_right = 379.0
 offset_bottom = 653.0
 placeholder_text = "Run Character:
 
@@ -31,7 +31,7 @@ Song Tiles Complete:
 
 Vibe Points: NaN
 
-Vibe Points Max: NaN
+Max Vibe Points: NaN
 
 Obtained Notes: 
 

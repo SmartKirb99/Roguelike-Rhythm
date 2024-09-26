@@ -16,10 +16,7 @@ var cards_obtained: Dictionary = {}
 var save_file_number: String = "1"
 
 func _ready():
-	if whatSave == "1":
-		load_data_from_file("res://Data/Saves/Save1/RunData.rrsv")
-	elif whatSave == "T":
-		load_data_from_file("res://Data/Saves/SaveTest/RunData.rrsv")
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func load_data_from_file(file_path: String):
@@ -28,10 +25,21 @@ func load_data_from_file(file_path: String):
 		var data = file.get_as_text()
 		file.close()
 
+		parse_rrsv_data(data)
+	else:
+		print("File not found: ", file_path)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if whatSave == "1":
+		load_data_from_file("res://Data/Saves/Save1/RunData.rrsv")
+	elif whatSave == "T":
+		load_data_from_file("res://Data/Saves/SaveTest/RunData.rrsv")
+	elif whatSave == "2":
+		load_data_from_file("res://Data/Saves/Save2/RunData.rrsv")
+	elif whatSave == "3":
+		load_data_from_file("res://Data/Saves/Save3/RunData.rrsv")
 
 func parse_rrsv_data(data: String):
 	var lines = data.split("\n")

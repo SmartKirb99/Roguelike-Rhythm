@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddlkjhsxqhrkc"
+path="res://.godot/imported/Chaos Eccentricity.wav-ba7eface61c0ae14aa4089f29e82eff1.sample"
+
+[deps]
+
+source_file="res://LevelData/Chaos Eccentricity/Chaos Eccentricity.wav"
+dest_files=["res://.godot/imported/Chaos Eccentricity.wav-ba7eface61c0ae14aa4089f29e82eff1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

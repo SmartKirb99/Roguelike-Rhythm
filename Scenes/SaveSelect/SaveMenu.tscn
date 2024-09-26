@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgpfktau3iiq1"]
+[gd_scene load_steps=13 format=3 uid="uid://bgpfktau3iiq1"]
 
 [ext_resource type="Texture2D" uid="uid://irmandyv3bwu" path="res://RoguelikeRhythmAssets/Save Panel/Save No 1.png" id="1_pjwkl"]
 [ext_resource type="Texture2D" uid="uid://cc2552cadi16y" path="res://RoguelikeRhythmAssets/Buttons/Continue/Continue Button.png" id="2_6aoqu"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dguh4xejtmm8w" path="res://RoguelikeRhythmAssets/Buttons/New/New Save Button.png" id="5_w6i3j"]
 [ext_resource type="Texture2D" uid="uid://dtewimr4nq4lc" path="res://RoguelikeRhythmAssets/Save Panel/Save No 2.png" id="6_5i1lb"]
 [ext_resource type="Texture2D" uid="uid://bf0nov6h7bggy" path="res://RoguelikeRhythmAssets/Save Panel/Save No 3.png" id="7_eqpor"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueSave2.gd" id="7_g8m8y"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueTest.gd" id="8_4nqnq"]
 [ext_resource type="Texture2D" uid="uid://cvwjxaqb5pilr" path="res://RoguelikeRhythmAssets/Save Panel/Save Test.png" id="8_fp3l2"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueSave3.gd" id="9_3mquk"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="10_uwyul"]
 
 [node name="Control" type="Control"]
@@ -56,6 +58,7 @@ texture = ExtResource("6_5i1lb")
 [node name="Continue" type="Button" parent="Save Container/Save 2"]
 layout_mode = 2
 icon = ExtResource("2_6aoqu")
+script = ExtResource("7_g8m8y")
 
 [node name="Delete" type="Button" parent="Save Container/Save 2"]
 layout_mode = 2
@@ -75,6 +78,7 @@ texture = ExtResource("7_eqpor")
 [node name="Continue" type="Button" parent="Save Container/Save 3"]
 layout_mode = 2
 icon = ExtResource("2_6aoqu")
+script = ExtResource("9_3mquk")
 
 [node name="Delete" type="Button" parent="Save Container/Save 3"]
 layout_mode = 2
