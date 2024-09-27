@@ -14,10 +14,11 @@ var cards_obtained: Dictionary = {"Raise": 123, "Taxes": 1}
 var save_file_number: String = "T"
 
 func _ready():
-	load_data_from_file("res://Data/Saves/Save Test/RunData.rrsv")
+	#load_data_from_file("res://Data/Saves/Save Test/RunData.rrsv")
 	# Example of modifying some data
-	vibe_points += 10
-	save_data_to_file("res://Data/Saves/Save Test/RunData.rrsv")
+	#vibe_points += 10
+	#save_data_to_file("res://Data/Saves/Save Test/RunData.rrsv")
+	pass
 
 func load_data_from_file(file_path: String):
 	var file = FileAccess.open(file_path, FileAccess.READ)

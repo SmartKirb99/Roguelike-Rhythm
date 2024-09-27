@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdus7ck8tcqxg"]
+
+[ext_resource type="Texture2D" uid="uid://ces2rfc8s3s6a" path="res://RoguelikeRhythmAssets/Characters/Greg/Greg.png" id="1_cwc5k"]
+[ext_resource type="Script" path="res://Scenes/Main/SetCharacterToGreg.gd" id="2_y55no"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 106.0
+scale = Vector2(4.24, 2.2)
+icon = ExtResource("1_cwc5k")
+script = ExtResource("2_y55no")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = -2.0
+offset_right = 398.0
+offset_bottom = 168.0
+scale = Vector2(1.6, 1.44)
+theme_override_font_sizes/font_size = 10
+text = "Greg:
+100 Max Vibe Points
+Starts with Normal Notes"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1

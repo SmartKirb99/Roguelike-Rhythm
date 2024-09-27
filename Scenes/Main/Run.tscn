@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4ts2rsb4irlc"]
+[gd_scene load_steps=4 format=3 uid="uid://4ts2rsb4irlc"]
 
 [ext_resource type="Script" path="res://Scenes/Main/ReadData.gd" id="1_h8b88"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="2_3ga0y"]
+[ext_resource type="Script" path="res://Scenes/Main/ToTheSave.gd" id="3_l2nbj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -46,6 +47,7 @@ deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
+wrap_mode = 1
 script = ExtResource("1_h8b88")
 
 [node name="Global" parent="." instance=ExtResource("2_3ga0y")]
@@ -54,3 +56,12 @@ offset_left = 1388.0
 offset_top = 344.0
 offset_right = 1388.0
 offset_bottom = 344.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 621.0
+offset_right = 376.0
+offset_bottom = 652.0
+text = "Return to Save Menu"
+script = ExtResource("3_l2nbj")

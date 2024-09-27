@@ -1,6 +1,7 @@
 extends Node
 
 var whatSave = ""
+var newSave = ""
 
 var run_character = "Guy"
 var new_note_tiles_complete: int = 0
@@ -14,6 +15,11 @@ var vibe_points_max: int = 100
 var obtained_notes: Array = ["Normal"]
 var cards_obtained: Dictionary = {}
 var save_file_number: String = "1"
+var last_completed_tile = ""
+@onready var PopUpScene: PackedScene = preload("res://Scenes/Main/DeletionScene.tscn")
+var popup:Control
+var w: Popup
+var view_port:Window
 
 func _ready():
 	pass
@@ -40,6 +46,7 @@ func _process(delta):
 		load_data_from_file("res://Data/Saves/Save2/RunData.rrsv")
 	elif whatSave == "3":
 		load_data_from_file("res://Data/Saves/Save3/RunData.rrsv")
+	
 
 func parse_rrsv_data(data: String):
 	var lines = data.split("\n")
@@ -73,6 +80,8 @@ func parse_rrsv_data(data: String):
 					cards_obtained = parse_cards(value)
 				"Save File Number":
 					save_file_number = value
+				"Last Completed Tile":
+					last_completed_tile = value
 
 func parse_cards(data: String) -> Dictionary:
 	var cards = {}
@@ -96,13 +105,82 @@ func save_data_to_file(file_path: String):
 		file.store_string("Note Downgrade Tiles Complete: %d\n" % note_downgrade_tiles_complete)
 		file.store_string("Song Tiles Complete: %d\n" % song_tiles_complete)
 		file.store_string("Vibe Points: %d\n" % vibe_points)
-		file.store_string("Vibe Points Max: %d\n" % vibe_points_max)
+		file.store_string("Max Vibe Points: %d\n" % vibe_points_max)
 		file.store_string("Obtained Notes: %s\n" % array_to_string(obtained_notes))
 		file.store_string("Cards Obtained: %s\n" % format_cards(cards_obtained))
 		file.store_string("Save File Number: %s\n" % save_file_number)
+		file.store_string("Last Completed Tile: %s\n" % last_completed_tile)
 		file.close()
 	else:
 		print("Failed to open file for writing: ", file_path)
+		
+		
+		
+func delete_data_from_file(file_path: String):
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	if file:
+		# Create a dictionary with the new data
+		var new_data = {
+		"Run Character": "YourCharacter",
+		"New Note Tiles Complete": 0,
+		"Boss Tiles Complete": 0,
+		"Shop Tiles Complete": 0,
+		"Note Upgrade Tiles Complete": 0,
+		"Note Downgrade Tiles Complete": 0,
+		"Song Tiles Complete": 0,
+		"Vibe Points": 0,
+		"Max Vibe Points": 0,
+		"Obtained Notes": [],
+		"Cards Obtained": [],
+		"Save File Number": 1,
+		"Last Completed Tile": "None"
+		}
+		
+		# Convert the dictionary to JSON and write it to the file
+		file.store_string(JSON.stringify(new_data))
+		view_port=get_window()
+		w=Popup.new()
+		w.borderless = false
+		w.unresizable = false
+		w.size = view_port.size * 0.5
+		w.position=(view_port.size - w.size) * 0.5
+		w.exclusive = true
+		w.popup_window = false
+		w.name = "popup"
+		w.visible = true
+		w.transient = true
+		
+		popup = PopUpScene.instantiate()
+		popup.position=Vector2i(0,0)
+		popup.size = w.size
+		
+		w.add_child(popup)
+		w.close_requested.connect(func():w.hide)
+		view_port.add_child(w)
+		file.close()
+		
+	else:
+		print("Failed to open file for writing")
+func hidden_delete_save(file_path: String):
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	if file:
+		# Create a dictionary with the new data
+		var new_data = {
+		"Run Character": "YourCharacter",
+		"New Note Tiles Complete": 0,
+		"Boss Tiles Complete": 0,
+		"Shop Tiles Complete": 0,
+		"Note Upgrade Tiles Complete": 0,
+		"Note Downgrade Tiles Complete": 0,
+		"Song Tiles Complete": 0,
+		"Vibe Points": 0,
+		"Max Vibe Points": 0,
+		"Obtained Notes": [],
+		"Cards Obtained": [],
+		"Save File Number": 1,
+		"Last Completed Tile": "None"
+		}
+		file.close()
 
 func array_to_string(arr: Array) -> String:
 	var result = ""
@@ -117,3 +195,28 @@ func format_cards(cards: Dictionary) -> String:
 	for card_name in cards.keys():
 		card_strings.append("%s * %d" % [card_name, cards[card_name]])
 	return array_to_string(card_strings)
+
+
+
+
+
+
+func new_save_file():
+	if newSave == "T":
+		hidden_delete_save("res://Data/Saves/SaveTest/RunData.rrsv")
+		load_data_from_file("res://Data/Saves/SaveTest/EmptyData.rrsv")
+		save_data_to_file("res://Data/Saves/SaveTest/RunData.rrsv")
+	elif newSave == "1":
+		hidden_delete_save("res://Data/Saves/Save1/RunData.rrsv")
+		load_data_from_file("res://Data/Saves/SaveTest/EmptyData.rrsv")
+		save_data_to_file("res://Data/Saves/Save1/RunData.rrsv")
+	elif newSave == "2":
+		hidden_delete_save("res://Data/Saves/Save2/RunData.rrsv")
+		load_data_from_file("res://Data/Saves/SaveTest/EmptyData.rrsv")
+		save_data_to_file("res://Data/Saves/Save2/RunData.rrsv")
+	elif newSave == "3":
+		hidden_delete_save("res://Data/Saves/Save3/RunData.rrsv")
+		load_data_from_file("res://Data/Saves/SaveTest/EmptyData.rrsv")
+		save_data_to_file("res://Data/Saves/Save3/RunData.rrsv")
+	get_tree().change_scene_to_file("res://Scenes/Main/CharacterSelection.tscn")
+	

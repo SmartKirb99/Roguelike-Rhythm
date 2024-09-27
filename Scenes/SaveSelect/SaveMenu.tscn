@@ -1,17 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgpfktau3iiq1"]
+[gd_scene load_steps=22 format=3 uid="uid://bgpfktau3iiq1"]
 
 [ext_resource type="Texture2D" uid="uid://irmandyv3bwu" path="res://RoguelikeRhythmAssets/Save Panel/Save No 1.png" id="1_pjwkl"]
 [ext_resource type="Texture2D" uid="uid://cc2552cadi16y" path="res://RoguelikeRhythmAssets/Buttons/Continue/Continue Button.png" id="2_6aoqu"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueSave1.gd" id="3_wnxx2"]
 [ext_resource type="Texture2D" uid="uid://de1h5djyodccw" path="res://RoguelikeRhythmAssets/Buttons/Delete/Delete Save Button.png" id="4_roh33"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/DeleteSave1.gd" id="5_koou3"]
 [ext_resource type="Texture2D" uid="uid://dguh4xejtmm8w" path="res://RoguelikeRhythmAssets/Buttons/New/New Save Button.png" id="5_w6i3j"]
 [ext_resource type="Texture2D" uid="uid://dtewimr4nq4lc" path="res://RoguelikeRhythmAssets/Save Panel/Save No 2.png" id="6_5i1lb"]
 [ext_resource type="Texture2D" uid="uid://bf0nov6h7bggy" path="res://RoguelikeRhythmAssets/Save Panel/Save No 3.png" id="7_eqpor"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/NewSave1.gd" id="7_fl5ah"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueSave2.gd" id="7_g8m8y"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueTest.gd" id="8_4nqnq"]
 [ext_resource type="Texture2D" uid="uid://cvwjxaqb5pilr" path="res://RoguelikeRhythmAssets/Save Panel/Save Test.png" id="8_fp3l2"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/ContinueSave3.gd" id="9_3mquk"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/DeleteSave2.gd" id="9_iqr1d"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="10_uwyul"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/NewSave2.gd" id="11_v4aou"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/DeleteTest.gd" id="12_6hm8m"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/DeleteSave3.gd" id="12_67atu"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/NewSave3.gd" id="15_hnv8l"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/NewTest.gd" id="16_tsndf"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/RerouteToTitle.gd" id="21_m7f4q"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -43,10 +52,12 @@ script = ExtResource("3_wnxx2")
 [node name="Delete" type="Button" parent="Save Container/Save 1"]
 layout_mode = 2
 icon = ExtResource("4_roh33")
+script = ExtResource("5_koou3")
 
 [node name="New" type="Button" parent="Save Container/Save 1"]
 layout_mode = 2
 icon = ExtResource("5_w6i3j")
+script = ExtResource("7_fl5ah")
 
 [node name="Save 2" type="HBoxContainer" parent="Save Container"]
 layout_mode = 2
@@ -63,10 +74,12 @@ script = ExtResource("7_g8m8y")
 [node name="Delete" type="Button" parent="Save Container/Save 2"]
 layout_mode = 2
 icon = ExtResource("4_roh33")
+script = ExtResource("9_iqr1d")
 
 [node name="New" type="Button" parent="Save Container/Save 2"]
 layout_mode = 2
 icon = ExtResource("5_w6i3j")
+script = ExtResource("11_v4aou")
 
 [node name="Save 3" type="HBoxContainer" parent="Save Container"]
 layout_mode = 2
@@ -83,10 +96,12 @@ script = ExtResource("9_3mquk")
 [node name="Delete" type="Button" parent="Save Container/Save 3"]
 layout_mode = 2
 icon = ExtResource("4_roh33")
+script = ExtResource("12_67atu")
 
 [node name="New" type="Button" parent="Save Container/Save 3"]
 layout_mode = 2
 icon = ExtResource("5_w6i3j")
+script = ExtResource("15_hnv8l")
 
 [node name="Save Test" type="HBoxContainer" parent="Save Container"]
 layout_mode = 2
@@ -103,10 +118,12 @@ script = ExtResource("8_4nqnq")
 [node name="Delete" type="Button" parent="Save Container/Save Test"]
 layout_mode = 2
 icon = ExtResource("4_roh33")
+script = ExtResource("12_6hm8m")
 
 [node name="New" type="Button" parent="Save Container/Save Test"]
 layout_mode = 2
 icon = ExtResource("5_w6i3j")
+script = ExtResource("16_tsndf")
 
 [node name="Global" parent="." instance=ExtResource("10_uwyul")]
 layout_mode = 1
@@ -114,3 +131,12 @@ offset_left = 1265.0
 offset_top = 777.0
 offset_right = 1265.0
 offset_bottom = 777.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 614.0
+offset_right = 1145.0
+offset_bottom = 645.0
+text = "Return to the Title Screen"
+script = ExtResource("21_m7f4q")

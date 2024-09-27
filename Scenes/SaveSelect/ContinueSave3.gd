@@ -62,7 +62,7 @@ func parse_rrsv_data(data: String):
 					song_tiles_complete = value.to_int()
 				"Vibe Points":
 					vibe_points = value.to_int()
-				"Vibe Points Max":
+				"Max Vibe Points":
 					vibe_points_max = value.to_int()
 				"Obtained Notes":
 					obtained_notes = value.split(", ")
