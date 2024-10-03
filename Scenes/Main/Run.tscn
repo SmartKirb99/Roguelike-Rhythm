@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://4ts2rsb4irlc"]
+[gd_scene load_steps=8 format=3 uid="uid://4ts2rsb4irlc"]
 
 [ext_resource type="Script" path="res://Scenes/Main/ReadData.gd" id="1_h8b88"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="2_3ga0y"]
 [ext_resource type="Script" path="res://Scenes/Main/ToTheSave.gd" id="3_l2nbj"]
+[ext_resource type="Texture2D" uid="uid://ces2rfc8s3s6a" path="res://RoguelikeRhythmAssets/Characters/Greg/Greg.png" id="4_dtuyo"]
+[ext_resource type="Script" path="res://Scenes/Main/GregRunner.gd" id="5_bqru7"]
+[ext_resource type="Texture2D" uid="uid://jwl72ig6egct" path="res://RoguelikeRhythmAssets/Tiles/Boss Tile/Completed Boss Tile.png" id="6_c4fio"]
+[ext_resource type="Script" path="res://Scenes/Main/Latest Tile.gd" id="7_uy8qm"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -65,3 +69,33 @@ offset_right = 376.0
 offset_bottom = 652.0
 text = "Return to Save Menu"
 script = ExtResource("3_l2nbj")
+
+[node name="Character" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -60.0
+offset_top = 12.0
+offset_right = -20.0
+offset_bottom = 52.0
+
+[node name="Greg" type="Sprite2D" parent="Character"]
+z_index = 1
+position = Vector2(632, 346)
+scale = Vector2(2.88412, 2.94972)
+texture = ExtResource("4_dtuyo")
+script = ExtResource("5_bqru7")
+
+[node name="LatestTile" type="Control" parent="Character"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Latest Tile" type="Sprite2D" parent="Character/LatestTile"]
+position = Vector2(636, 381)
+scale = Vector2(4.84, 1.36)
+texture = ExtResource("6_c4fio")
+script = ExtResource("7_uy8qm")
+
+[node name="Next Tiles" type="Control" parent="Character"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdus7ck8tcqxg"]
+[gd_scene load_steps=5 format=3 uid="uid://cdus7ck8tcqxg"]
 
 [ext_resource type="Texture2D" uid="uid://ces2rfc8s3s6a" path="res://RoguelikeRhythmAssets/Characters/Greg/Greg.png" id="1_cwc5k"]
 [ext_resource type="Script" path="res://Scenes/Main/SetCharacterToGreg.gd" id="2_y55no"]
+[ext_resource type="Texture2D" uid="uid://dgupcnehpxdhq" path="res://RoguelikeRhythmAssets/Characters/Eater of Cheetos/EaterOfCheetos.png" id="3_iymnb"]
+[ext_resource type="Script" path="res://Scenes/Main/SetCharacterToEaterOfCheetos.gd" id="4_hiffq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,25 +13,72 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Greg" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -171.0
+offset_top = -38.0
+offset_right = -131.0
+offset_bottom = 2.0
+
+[node name="Button" type="Button" parent="Greg"]
 layout_mode = 0
-offset_right = 58.0
-offset_bottom = 106.0
+offset_left = 171.0
+offset_top = 38.0
+offset_right = 229.0
+offset_bottom = 144.0
 scale = Vector2(4.24, 2.2)
 icon = ExtResource("1_cwc5k")
 script = ExtResource("2_y55no")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="TextEdit" type="TextEdit" parent="Greg"]
 layout_mode = 0
-offset_left = 255.0
-offset_top = -2.0
-offset_right = 398.0
-offset_bottom = 168.0
+offset_left = 425.0
+offset_top = 36.0
+offset_right = 557.0
+offset_bottom = 199.0
 scale = Vector2(1.6, 1.44)
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 15
 text = "Greg:
 100 Max Vibe Points
 Starts with Normal Notes"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+
+[node name="Eater of Cheetos" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -168.0
+offset_top = 204.0
+offset_right = -128.0
+offset_bottom = 244.0
+
+[node name="Button" type="Button" parent="Eater of Cheetos"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 38.0
+offset_right = 229.0
+offset_bottom = 144.0
+scale = Vector2(4.24, 2.2)
+icon = ExtResource("3_iymnb")
+script = ExtResource("4_hiffq")
+
+[node name="TextEdit" type="TextEdit" parent="Eater of Cheetos"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 36.0
+offset_right = 557.0
+offset_bottom = 199.0
+scale = Vector2(1.6, 1.44)
+theme_override_font_sizes/font_size = 13
+text = "Eater of Cheetos:
+100 Max Vibe Points
+Starts with Cheeto Notes"
 editable = false
 context_menu_enabled = false
 shortcut_keys_enabled = false
