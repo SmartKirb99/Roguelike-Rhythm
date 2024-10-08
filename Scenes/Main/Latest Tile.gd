@@ -11,9 +11,12 @@ var last_completed_tile = Global.last_completed_tile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_texture(last_completed_tile)
+	change_sprite()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	set_texture(last_completed_tile)
+	change_sprite()
+func change_sprite():
+	var texture = load(last_completed_tile)
+	$Sprite2D.texture = texture
