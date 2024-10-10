@@ -1,12 +1,5 @@
 extends Sprite2D
-
-var boss_tile = ("res://RoguelikeRhythmAssets/Tiles/Boss Tile/Completed Boss Tile.png")
-var new_note_tile = ("res://RoguelikeRhythmAssets/Tiles/New Note Tile/Completed New Note Tile.png")
-var note_downgrade_tile = ("res://RoguelikeRhythmAssets/Tiles/Note 'Downgrade' Tile/Completed Note 'Downgrade' Tile.png")
-var note_upgrade_tile = ("res://RoguelikeRhythmAssets/Tiles/Note Upgrade Tile/Completed Note Upgrade Tile.png")
-var shop_tile = ("res://RoguelikeRhythmAssets/Tiles/Shop Tile/Completed Shop Tile.png")
-var song_tile = ("res://RoguelikeRhythmAssets/Tiles/Song Tile/Completed Song Tile.png")
-
+var textur
 var last_completed_tile = Global.last_completed_tile
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +9,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	change_sprite()
+	pass
 func change_sprite():
-	var texture = load(last_completed_tile)
-	$Sprite2D.texture = texture
+	if last_completed_tile == "Boss Tile":
+		textur = load("res://RoguelikeRhythmAssets/Tiles/Boss Tile/Completed Boss Tile.png")
+	elif last_completed_tile == "New Note Tile":
+		textur = load("res://RoguelikeRhythmAssets/Tiles/New Note Tile/Completed New Note Tile.png")
+	elif last_completed_tile == "Note Downgrade Tile":
+		textur = load("res://RoguelikeRhythmAssets/Tiles/Note 'Downgrade' Tile/Completed Note 'Downgrade' Tile.png")
+	elif last_completed_tile == "Note Upgrade Tile":
+		textur = load("res://RoguelikeRhythmAssets/Tiles/Note Upgrade Tile/Completed Note Upgrade Tile.png")
+	elif last_completed_tile == "Shop Tile":
+		textur = load("res://RoguelikeRhythmAssets/Tiles/Shop Tile/Completed Shop Tile.png")
+	elif last_completed_tile == "Song Title":
+		textur = load("res://RoguelikeRhythmAssets/Tiles/Song Tile/Completed Song Tile.png")
+	elif last_completed_tile == "Start Tile":
+		textur = load("res://RoguelikeRhythmAssets/Tiles/Start Tile/StartTile.png")
+	change_texture(textur)
+func change_texture(textur: Texture):
+	set_texture(textur)

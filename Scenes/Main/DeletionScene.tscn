@@ -5,6 +5,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
 offset_left = -4.0
 offset_top = 1.0
 offset_right = 584.0

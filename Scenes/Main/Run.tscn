@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4ts2rsb4irlc"]
+[gd_scene load_steps=11 format=3 uid="uid://4ts2rsb4irlc"]
 
 [ext_resource type="Script" path="res://Scenes/Main/ReadData.gd" id="1_h8b88"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="2_3ga0y"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Scenes/Main/GregRunner.gd" id="5_bqru7"]
 [ext_resource type="Texture2D" uid="uid://jwl72ig6egct" path="res://RoguelikeRhythmAssets/Tiles/Boss Tile/Completed Boss Tile.png" id="6_c4fio"]
 [ext_resource type="Script" path="res://Scenes/Main/Latest Tile.gd" id="7_uy8qm"]
+[ext_resource type="Texture2D" uid="uid://c8yfkqc5qq3b8" path="res://RoguelikeRhythmAssets/Tiles/New Note Tile/New Note Tile.png" id="8_4igvq"]
+[ext_resource type="Script" path="res://Scenes/Main/RandomNote.gd" id="9_ex0mu"]
+[ext_resource type="Texture2D" uid="uid://digyn6geia84o" path="res://RoguelikeRhythmAssets/Tiles/Path Tile/Straight Path.png" id="10_m020o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -78,8 +81,8 @@ offset_right = -20.0
 offset_bottom = 52.0
 
 [node name="Greg" type="Sprite2D" parent="Character"]
-z_index = 1
-position = Vector2(632, 346)
+z_index = 2
+position = Vector2(661, 344)
 scale = Vector2(2.88412, 2.94972)
 texture = ExtResource("4_dtuyo")
 script = ExtResource("5_bqru7")
@@ -90,7 +93,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Latest Tile" type="Sprite2D" parent="Character/LatestTile"]
-position = Vector2(636, 381)
+z_index = 1
+position = Vector2(665, 379)
 scale = Vector2(4.84, 1.36)
 texture = ExtResource("6_c4fio")
 script = ExtResource("7_uy8qm")
@@ -99,3 +103,41 @@ script = ExtResource("7_uy8qm")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Op1" type="Sprite2D" parent="Character/Next Tiles"]
+z_index = 1
+position = Vector2(1031, 211)
+scale = Vector2(3.59433, 1.20747)
+texture = ExtResource("8_4igvq")
+script = ExtResource("9_ex0mu")
+
+[node name="Op2" type="Sprite2D" parent="Character/Next Tiles"]
+z_index = 1
+position = Vector2(1035, 380)
+scale = Vector2(3.59433, 1.20747)
+texture = ExtResource("8_4igvq")
+
+[node name="Op3" type="Sprite2D" parent="Character/Next Tiles"]
+z_index = 1
+position = Vector2(1029, 547)
+scale = Vector2(3.59433, 1.20747)
+texture = ExtResource("8_4igvq")
+
+[node name="Path Container" type="Node" parent="."]
+
+[node name="Forwards Tile" type="Sprite2D" parent="Path Container"]
+position = Vector2(776, 392)
+scale = Vector2(32.8535, 1.12)
+texture = ExtResource("10_m020o")
+
+[node name="Up Tile" type="Sprite2D" parent="Path Container"]
+position = Vector2(777, 310)
+rotation = -0.473256
+scale = Vector2(36.7268, 1.00768)
+texture = ExtResource("10_m020o")
+
+[node name="Down Tile" type="Sprite2D" parent="Path Container"]
+position = Vector2(777, 474)
+rotation = 0.478341
+scale = Vector2(36.7268, 1.00768)
+texture = ExtResource("10_m020o")
