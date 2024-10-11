@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4ts2rsb4irlc"]
+[gd_scene load_steps=14 format=3 uid="uid://4ts2rsb4irlc"]
 
 [ext_resource type="Script" path="res://Scenes/Main/ReadData.gd" id="1_h8b88"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="2_3ga0y"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c8yfkqc5qq3b8" path="res://RoguelikeRhythmAssets/Tiles/New Note Tile/New Note Tile.png" id="8_4igvq"]
 [ext_resource type="Script" path="res://Scenes/Main/RandomNote.gd" id="9_ex0mu"]
 [ext_resource type="Texture2D" uid="uid://digyn6geia84o" path="res://RoguelikeRhythmAssets/Tiles/Path Tile/Straight Path.png" id="10_m020o"]
+[ext_resource type="Script" path="res://Scenes/Main/RandomNote2.gd" id="10_s8d63"]
+[ext_resource type="Script" path="res://Scenes/Main/RandomNote3.gd" id="11_cr25h"]
+[ext_resource type="Script" path="res://Scenes/Main/ResetTiles.gd" id="13_uakps"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -64,7 +67,7 @@ offset_top = 344.0
 offset_right = 1388.0
 offset_bottom = 344.0
 
-[node name="Button" type="Button" parent="."]
+[node name="Return to Save Menu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 621.0
@@ -116,12 +119,14 @@ z_index = 1
 position = Vector2(1035, 380)
 scale = Vector2(3.59433, 1.20747)
 texture = ExtResource("8_4igvq")
+script = ExtResource("10_s8d63")
 
 [node name="Op3" type="Sprite2D" parent="Character/Next Tiles"]
 z_index = 1
 position = Vector2(1029, 547)
 scale = Vector2(3.59433, 1.20747)
 texture = ExtResource("8_4igvq")
+script = ExtResource("11_cr25h")
 
 [node name="Path Container" type="Node" parent="."]
 
@@ -141,3 +146,35 @@ position = Vector2(777, 474)
 rotation = 0.478341
 scale = Vector2(36.7268, 1.00768)
 texture = ExtResource("10_m020o")
+
+[node name="Reset Tiles" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 622.0
+offset_right = 92.0
+offset_bottom = 653.0
+text = "Reset Tiles"
+script = ExtResource("13_uakps")
+
+[node name="Choice Holder" type="Node" parent="."]
+
+[node name="Up" type="Button" parent="Choice Holder"]
+offset_left = 955.0
+offset_top = 233.0
+offset_right = 985.0
+offset_bottom = 264.0
+text = "Up"
+
+[node name="Forward" type="Button" parent="Choice Holder"]
+offset_left = 939.0
+offset_top = 403.0
+offset_right = 1012.0
+offset_bottom = 434.0
+text = "Forward"
+
+[node name="Down" type="Button" parent="Choice Holder"]
+offset_left = 935.0
+offset_top = 570.0
+offset_right = 1008.0
+offset_bottom = 601.0
+text = "Down"

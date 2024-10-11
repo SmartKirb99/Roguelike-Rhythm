@@ -2,7 +2,7 @@ extends Sprite2D
 var last_completed_tile = ""
 var tiel
 var raenge
-var tile_1 = Global.next_tiles[0]
+var tile_1 = Global.next_tiles[2]
 var the_next_tile = Global.the_next_tile
 
 # Called when the node enters the scene tree for the first time.

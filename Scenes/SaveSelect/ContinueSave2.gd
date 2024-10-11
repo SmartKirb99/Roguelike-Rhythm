@@ -25,6 +25,7 @@ func _ready():
 func _on_Button_pressed():
 	Global.whatSave = "2"
 	load_data_from_file("res://Data/Saves/Save2/RunData.rrsv")
+	#Global.getOldTiles() breaks the existing code
 	Global.warn_save()
 	get_tree().change_scene_to_file("res://Scenes/Main/Run.tscn")
 	

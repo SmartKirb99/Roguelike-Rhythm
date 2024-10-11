@@ -21,7 +21,7 @@ func change_sprite():
 		textur = load("res://RoguelikeRhythmAssets/Tiles/Note Upgrade Tile/Completed Note Upgrade Tile.png")
 	elif last_completed_tile == "Shop Tile":
 		textur = load("res://RoguelikeRhythmAssets/Tiles/Shop Tile/Completed Shop Tile.png")
-	elif last_completed_tile == "Song Title":
+	elif last_completed_tile == "Song Tile":
 		textur = load("res://RoguelikeRhythmAssets/Tiles/Song Tile/Completed Song Tile.png")
 	elif last_completed_tile == "Start Tile":
 		textur = load("res://RoguelikeRhythmAssets/Tiles/Start Tile/StartTile.png")

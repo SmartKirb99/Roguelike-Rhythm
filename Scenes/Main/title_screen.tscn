@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cci6j1nuln4vi"]
+[gd_scene load_steps=6 format=3 uid="uid://cci6j1nuln4vi"]
 
 [ext_resource type="Texture2D" uid="uid://dp0co1h2jun8p" path="res://RoguelikeRhythmAssets/Menu Stuff/Title/Icon/Title.png" id="1_fx5lg"]
 [ext_resource type="Texture2D" uid="uid://ckj8twrtmr0bj" path="res://RoguelikeRhythmAssets/Menu Stuff/Title/Button/Start Menu Button.png" id="2_v1e7n"]
 [ext_resource type="Script" path="res://Scenes/Main/ToTheSave.gd" id="3_bgaw4"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="4_mtxro"]
+[ext_resource type="Script" path="res://Scenes/Main/ToTesting.gd" id="5_qc5r5"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -34,3 +35,12 @@ offset_left = 1534.0
 offset_top = 163.0
 offset_right = 1534.0
 offset_bottom = 163.0
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 552.0
+offset_right = 161.0
+offset_bottom = 583.0
+text = "Test Song"
+script = ExtResource("5_qc5r5")

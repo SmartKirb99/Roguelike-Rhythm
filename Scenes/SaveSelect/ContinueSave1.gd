@@ -38,3 +38,4 @@ func load_data_from_file(file_path: String):
 		Global.parse_rrsv_data(data)
 	else:
 		print("File not found: ", file_path)
+

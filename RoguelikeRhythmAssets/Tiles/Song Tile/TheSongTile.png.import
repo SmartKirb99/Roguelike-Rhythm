@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmw6oerdfng2u"
-path="res://.godot/imported/Song Tile.png-9389d881a09d1c12c9fa277b6616ab70.ctex"
+uid="uid://41uwfipl6apg"
+path.s3tc="res://.godot/imported/TheSongTile.png-f492ec473494e28e933bec1c627e97b4.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://RoguelikeRhythmAssets/Tiles/Song Tile/Song Tile.png"
-dest_files=["res://.godot/imported/Song Tile.png-9389d881a09d1c12c9fa277b6616ab70.ctex"]
+source_file="res://RoguelikeRhythmAssets/Tiles/Song Tile/TheSongTile.png"
+dest_files=["res://.godot/imported/TheSongTile.png-f492ec473494e28e933bec1c627e97b4.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

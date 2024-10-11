@@ -38,6 +38,15 @@ var x: Popup
 var view_port:Window
 var viewport2:Window
 var has_seen_warning = false
+var raenge
+var tiel
+var the_next_tile
+var next_tiles: Array = ["", "", ""]
+var is_already_generated = false
+var save1 = "res://Data/Saves/Save1/RunData.rrsv"
+var save2 = "res://Data/Saves/Save2/RunData.rrsv"
+var save3 = "res://Data/Saves/Save3/RunData.rrsv"
+var saveT = "res://Data/Saves/SaveTest/RunData.rrsv"
 
 
 func _ready():
@@ -102,6 +111,8 @@ func parse_rrsv_data(data: String):
 					save_file_number = value
 				"Last Completed Tile":
 					last_completed_tile = value
+				"Next Tiles":
+					next_tiles = value.split(", ")
 
 func parse_cards(data: String) -> Dictionary:
 	var cards = {}
@@ -130,6 +141,7 @@ func save_data_to_file(file_path: String):
 		file.store_string("Cards Obtained: %s\n" % format_cards(cards_obtained))
 		file.store_string("Save File Number: %s\n" % save_file_number)
 		file.store_string("Last Completed Tile: %s\n" % last_completed_tile)
+		file.store_string("Next Tiles %s\n" % array_to_string(next_tiles))
 		file.close()
 	else:
 		print("Failed to open file for writing: ", file_path)
@@ -317,4 +329,67 @@ func tryComparison():
 		load_data_from_file("res://Data/Saves/Save3/RunData.rrsv")
 	elif whatSave == "T":
 		load_data_from_file("res://Data/Saves/SaveTest/RunData.rrsv")
+func _generate_new_tile():
+	raenge = randi_range(0,5)
+	if raenge == 0:
+		the_next_tile = "Boss Tile"
+	elif raenge == 1:
+		the_next_tile = "New Note Tile"
+	elif raenge == 2:
+		the_next_tile = "Note Downgrade Tile"
+	elif raenge == 3:
+		the_next_tile = "Note Upgrade Tile"
+	elif raenge == 4:
+		the_next_tile = "Shop Tile"
+	elif raenge == 5:
+		the_next_tile = "Song Tile"
+	
+	print(the_next_tile)
+
+func saveTiles():
+	next_tiles.erase(0)
+	next_tiles.erase(1)
+	next_tiles.erase(2)
+	next_tiles.resize(2)
+	_generate_new_tile()
+	next_tiles.insert(0, the_next_tile)
+	_generate_new_tile()
+	next_tiles.insert(1, the_next_tile)
+	_generate_new_tile()
+	next_tiles.insert(2, the_next_tile)
+	if whatSave == "1":
+		save_data_to_file("res://Data//Saves/Save1/RunData.rrsv")
+	elif whatSave == "2":
+		save_data_to_file("res://Data/Saves/Save2/RunData.rrsv")
+	elif whatSave == "3":
+		save_data_to_file("res://Data/Saves/Save3/RunData.rrsv")
+	elif whatSave == "T":
+		save_data_to_file("res://Data/Saves/SaveTest/RunData.rrsv")
+	is_already_generated = true
+
+func checkTiles():
+	if is_already_generated == true:
+		pass
+	else:
+		saveTiles()
+		
+func resetTiles():
+	next_tiles.clear()
+	is_already_generated = false
+	saveTiles()
+
+
+func getOldTiles():
+	if whatSave == "1":
+		load_data_from_file(save1)
+		is_already_generated = true
+	elif whatSave == "2":
+		load_data_from_file(save2)
+		is_already_generated = true
+	elif whatSave == "3":
+		load_data_from_file(save3)
+		is_already_generated = true
+	elif whatSave == "T":
+		load_data_from_file(saveT)
+		is_already_generated = true
 	
