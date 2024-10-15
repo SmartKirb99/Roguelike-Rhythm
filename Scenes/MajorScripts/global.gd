@@ -46,7 +46,7 @@ var is_already_generated = false
 var save1 = "res://Data/Saves/Save1/RunData.rrsv"
 var save2 = "res://Data/Saves/Save2/RunData.rrsv"
 var save3 = "res://Data/Saves/Save3/RunData.rrsv"
-var saveT = "res://Data/Saves/SaveTest/RunData.rrsv"
+var saveT = "res://Data/Saves/SaveTest/RunData.rrsv" 
 
 
 func _ready():

@@ -1,27 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://blnunfqghx3p0"]
+[gd_scene load_steps=26 format=3 uid="uid://blnunfqghx3p0"]
 
 [ext_resource type="Texture2D" uid="uid://svfffqfgbjfd" path="res://RoguelikeRhythmAssets/Keys/Down Key Block.png" id="1_3clay"]
 [ext_resource type="Texture2D" uid="uid://b2wuy2wt1envr" path="res://RoguelikeRhythmAssets/Keys/Up Key Block.png" id="2_ncjxj"]
+[ext_resource type="Script" path="res://Scenes/Main/TransformDown.gd" id="2_xs7vn"]
 [ext_resource type="Texture2D" uid="uid://begvqbpe7so5q" path="res://RoguelikeRhythmAssets/Keys/Left Key Block.png" id="3_kv2jw"]
-[ext_resource type="Texture2D" uid="uid://dmrhje8wa1gaw" path="res://RoguelikeRhythmAssets/Characters/Template/Template Guy.png" id="4_vej0t"]
+[ext_resource type="Script" path="res://Scenes/Main/CameraMovement.gd" id="5_2ntkt"]
 [ext_resource type="Texture2D" uid="uid://dsnn85ecvh6s1" path="res://Images/Background.png" id="5_fq7eu"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_jul3d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgju3"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_7vrjc"]
-material = SubResource("StandardMaterial3D_fgju3")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hk8o1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_763qv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nqmo"]
-albedo_color = Color(0.192157, 0.168627, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_l5xvb"]
-material = SubResource("StandardMaterial3D_8nqmo")
+[ext_resource type="Texture2D" uid="uid://bg62cr6opxw5s" path="res://Images/TheCreatureSaysHi.png" id="6_jov1p"]
+[ext_resource type="Texture2D" uid="uid://d3012hfopjkpu" path="res://RoguelikeRhythmAssets/Keys/Right Key Block.png" id="6_prwh2"]
+[ext_resource type="Script" path="res://Scenes/Main/TrueCameraMovement.gd" id="7_plys5"]
+[ext_resource type="Texture2D" uid="uid://cft6wocjyh3n7" path="res://RoguelikeRhythmAssets/Keys/Up-Right Key Block.png" id="7_seh6k"]
+[ext_resource type="Texture2D" uid="uid://dqey11ydgoej0" path="res://RoguelikeRhythmAssets/Keys/Up-Left Key Block.png" id="8_6bxp4"]
+[ext_resource type="Texture2D" uid="uid://bdtfvptiougn0" path="res://RoguelikeRhythmAssets/Keys/Down-Right Key Block.png" id="8_n5qlh"]
+[ext_resource type="Script" path="res://Scenes/SaveSelect/RerouteToTitle.gd" id="9_ftre2"]
+[ext_resource type="Texture2D" uid="uid://b76alg4eclok5" path="res://RoguelikeRhythmAssets/Keys/Down-Left Key Block.png" id="10_uhgsl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bwl7h"]
 panorama = ExtResource("5_fq7eu")
@@ -34,9 +26,34 @@ background_mode = 2
 sky = SubResource("Sky_wk72a")
 sky_rotation = Vector3(0, 3.14159, 0)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_jul3d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgju3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7vrjc"]
+material = SubResource("StandardMaterial3D_fgju3")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hk8o1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1tghc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_763qv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nqmo"]
+transparency = 1
+albedo_color = Color(0.192157, 0.168627, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5xvb"]
+material = SubResource("StandardMaterial3D_8nqmo")
+
 [node name="Node3D" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ne4w6")
+
 [node name="Down" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.33236, 3.07)
+script = ExtResource("2_xs7vn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Down"]
 shape = SubResource("SphereShape3D_jul3d")
@@ -52,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
 mesh = SubResource("SphereMesh_7vrjc")
 
 [node name="Up" type="Area3D" parent="."]
-transform = Transform3D(0.794828, 0, -0.606835, 0, 1, 0, 0.606835, 0, 0.794828, 1.42951, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32635, 3.07)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Up"]
 shape = SubResource("SphereShape3D_jul3d")
@@ -68,7 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
 mesh = SubResource("SphereMesh_7vrjc")
 
 [node name="Left" type="Area3D" parent="."]
-transform = Transform3D(0.885937, 0, 0.463806, 0, 1, 0, -0.463806, 0, 0.885937, -1.37243, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.981, 0.467, 3.07)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Left"]
 shape = SubResource("SphereShape3D_jul3d")
@@ -83,26 +100,121 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Left/CollisionShape3D"]
 mesh = SubResource("SphereMesh_7vrjc")
 
+[node name="Right" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.980751, 0.474568, 3.07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Right"]
+shape = SubResource("SphereShape3D_jul3d")
+
+[node name="Sprite3D" type="Sprite3D" parent="Right/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
+texture = ExtResource("6_prwh2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Right/CollisionShape3D/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Right/CollisionShape3D"]
+mesh = SubResource("SphereMesh_7vrjc")
+
+[node name="UpRight" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981, 1.326, 3.07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpRight"]
+shape = SubResource("SphereShape3D_jul3d")
+
+[node name="Sprite3D" type="Sprite3D" parent="UpRight/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
+texture = ExtResource("7_seh6k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="UpRight/CollisionShape3D/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UpRight/CollisionShape3D"]
+mesh = SubResource("SphereMesh_7vrjc")
+
+[node name="DownRight" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.981, -0.332, 3.07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DownRight"]
+shape = SubResource("SphereShape3D_jul3d")
+
+[node name="Sprite3D" type="Sprite3D" parent="DownRight/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
+texture = ExtResource("8_n5qlh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DownRight/CollisionShape3D/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DownRight/CollisionShape3D"]
+mesh = SubResource("SphereMesh_7vrjc")
+
+[node name="UpLeft" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931424, 1.326, 3.07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpLeft"]
+shape = SubResource("SphereShape3D_jul3d")
+
+[node name="Sprite3D" type="Sprite3D" parent="UpLeft/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
+texture = ExtResource("8_6bxp4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="UpLeft/CollisionShape3D/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UpLeft/CollisionShape3D"]
+mesh = SubResource("SphereMesh_7vrjc")
+
+[node name="DownLeft" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931, -0.332, 3.07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DownLeft"]
+shape = SubResource("SphereShape3D_jul3d")
+
+[node name="Sprite3D" type="Sprite3D" parent="DownLeft/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
+texture = ExtResource("10_uhgsl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DownLeft/CollisionShape3D/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DownLeft/CollisionShape3D"]
+mesh = SubResource("SphereMesh_7vrjc")
+
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.80162)
-
-[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
-texture = ExtResource("4_vej0t")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128278, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.122, 5.80162)
+script = ExtResource("5_2ntkt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_hk8o1")
 
+[node name="Marker3D" type="Marker3D" parent="CharacterBody3D"]
+script = ExtResource("7_plys5")
+
+[node name="PitchNode" type="Node3D" parent="CharacterBody3D/Marker3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Marker3D/PitchNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128278, 0)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(16, 0, 0, 0, 1, 0, 0, 0, 16, 0, -0.964972, 4.39473)
+physics_material_override = SubResource("PhysicsMaterial_1tghc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_763qv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
-transform = Transform3D(117.688, 0, 0, 0, 1, 0, 0, 0, 161.54, 0, -1.51837, 5.77913)
 mesh = SubResource("BoxMesh_l5xvb")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="StaticBody3D/CollisionShape3D/MeshInstance3D"]
-environment = SubResource("Environment_ne4w6")
+[node name="Hola" type="Sprite3D" parent="."]
+transform = Transform3D(11.86, 0, 0, 0, 11.86, 0, 0, 0, 1, 0, 4.73635, 101.191)
+texture = ExtResource("5_fq7eu")
+
+[node name="Sprite3D" type="Sprite3D" parent="Hola"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.08268, 1.37589, -36.795)
+texture = ExtResource("6_jov1p")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Return to Title Screen (Because this doesn't yet work)"
+script = ExtResource("9_ftre2")

@@ -1,16 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cci6j1nuln4vi"]
+[gd_scene load_steps=7 format=3 uid="uid://cci6j1nuln4vi"]
 
 [ext_resource type="Texture2D" uid="uid://dp0co1h2jun8p" path="res://RoguelikeRhythmAssets/Menu Stuff/Title/Icon/Title.png" id="1_fx5lg"]
 [ext_resource type="Texture2D" uid="uid://ckj8twrtmr0bj" path="res://RoguelikeRhythmAssets/Menu Stuff/Title/Button/Start Menu Button.png" id="2_v1e7n"]
 [ext_resource type="Script" path="res://Scenes/Main/ToTheSave.gd" id="3_bgaw4"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="4_mtxro"]
 [ext_resource type="Script" path="res://Scenes/Main/ToTesting.gd" id="5_qc5r5"]
+[ext_resource type="Script" path="res://Scenes/Main/ToHowToPlay.gd" id="6_f46q7"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -21,10 +26,10 @@ texture = ExtResource("1_fx5lg")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 460.0
-offset_top = 424.0
-offset_right = 518.0
-offset_bottom = 457.0
+offset_left = 482.0
+offset_top = 507.0
+offset_right = 540.0
+offset_bottom = 540.0
 scale = Vector2(4, 4)
 icon = ExtResource("2_v1e7n")
 script = ExtResource("3_bgaw4")
@@ -38,9 +43,18 @@ offset_bottom = 163.0
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 552.0
-offset_right = 161.0
-offset_bottom = 583.0
+offset_left = 5.0
+offset_top = 611.0
+offset_right = 88.0
+offset_bottom = 642.0
 text = "Test Song"
 script = ExtResource("5_qc5r5")
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 611.0
+offset_right = 1138.0
+offset_bottom = 642.0
+text = "How to Play"
+script = ExtResource("6_f46q7")

@@ -1,0 +1,140 @@
+[gd_scene load_steps=21 format=3 uid="uid://cv011vmih5hd8"]
+
+[ext_resource type="Script" path="res://Scenes/SaveSelect/RerouteToTitle.gd" id="1_sb1ox"]
+[ext_resource type="Texture2D" uid="uid://b2wuy2wt1envr" path="res://RoguelikeRhythmAssets/Keys/Up Key Block.png" id="2_ktdae"]
+[ext_resource type="Script" path="res://Scenes/Main/UpKeyBlockSpriteChange.gd" id="3_u3b0v"]
+[ext_resource type="Texture2D" uid="uid://cft6wocjyh3n7" path="res://RoguelikeRhythmAssets/Keys/Up-Right Key Block.png" id="3_v6r7l"]
+[ext_resource type="Texture2D" uid="uid://dqey11ydgoej0" path="res://RoguelikeRhythmAssets/Keys/Up-Left Key Block.png" id="4_8jyqv"]
+[ext_resource type="Script" path="res://Scenes/Main/Up-rightKeyBlockSpriteChange.gd" id="5_bkmr2"]
+[ext_resource type="Texture2D" uid="uid://begvqbpe7so5q" path="res://RoguelikeRhythmAssets/Keys/Left Key Block.png" id="5_jlcjh"]
+[ext_resource type="Texture2D" uid="uid://d3012hfopjkpu" path="res://RoguelikeRhythmAssets/Keys/Right Key Block.png" id="6_14ka2"]
+[ext_resource type="Script" path="res://Scenes/Main/Up-leftKeyBlockSpriteChange.gd" id="7_2ooik"]
+[ext_resource type="Texture2D" uid="uid://b76alg4eclok5" path="res://RoguelikeRhythmAssets/Keys/Down-Left Key Block.png" id="7_4pi15"]
+[ext_resource type="Script" path="res://Scenes/Main/LeftKeyBlockSpriteChange.gd" id="7_55u51"]
+[ext_resource type="Texture2D" uid="uid://svfffqfgbjfd" path="res://RoguelikeRhythmAssets/Keys/Down Key Block.png" id="8_d6l22"]
+[ext_resource type="Texture2D" uid="uid://bdtfvptiougn0" path="res://RoguelikeRhythmAssets/Keys/Down-Right Key Block.png" id="9_60srf"]
+[ext_resource type="Script" path="res://Scenes/Main/RightKeyBlockSpriteChange.gd" id="9_naw1t"]
+[ext_resource type="Texture2D" uid="uid://c3ybtod3ypge" path="res://RoguelikeRhythmAssets/Characters/Jeremy/Jermemy0.png" id="10_tnya6"]
+[ext_resource type="Texture2D" uid="uid://dixomp46xpgte" path="res://RoguelikeRhythmAssets/Characters/Jeremy/Jermemy1.png" id="11_mapj3"]
+[ext_resource type="Script" path="res://Scenes/Main/DownKeyBlockSpriteChange.gd" id="12_3pkob"]
+[ext_resource type="Script" path="res://Scenes/Main/Down-leftKeyBlockSpriteChange.gd" id="13_421fy"]
+[ext_resource type="Script" path="res://Scenes/Main/Down-rightKeyBlockSpriteChange.gd" id="17_26orp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mb3h2"]
+resource_name = "Speaking"
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_mapj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tnya6")
+}],
+"loop": true,
+"name": &"Speaking",
+"speed": 15.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = 122.0
+offset_bottom = 27.0
+text = "Return to Title"
+script = ExtResource("1_sb1ox")
+
+[node name="Key Holder" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -108.0
+offset_top = -11.0
+offset_right = -68.0
+offset_bottom = 29.0
+scale = Vector2(2.01255, 2.01255)
+
+[node name="UpKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(487, 122)
+texture = ExtResource("2_ktdae")
+script = ExtResource("3_u3b0v")
+
+[node name="Up-rightKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(517, 122)
+texture = ExtResource("3_v6r7l")
+script = ExtResource("5_bkmr2")
+
+[node name="Up-leftKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(457, 122)
+texture = ExtResource("4_8jyqv")
+script = ExtResource("7_2ooik")
+
+[node name="LeftKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(457, 152)
+texture = ExtResource("5_jlcjh")
+script = ExtResource("7_55u51")
+
+[node name="RightKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(517, 152)
+texture = ExtResource("6_14ka2")
+script = ExtResource("9_naw1t")
+
+[node name="Down-leftKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(457, 182)
+texture = ExtResource("7_4pi15")
+script = ExtResource("13_421fy")
+
+[node name="DownKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(487, 182)
+texture = ExtResource("8_d6l22")
+script = ExtResource("12_3pkob")
+
+[node name="Down-rightKeyBlock" type="Sprite2D" parent="Key Holder"]
+position = Vector2(517, 182)
+texture = ExtResource("9_60srf")
+script = ExtResource("17_26orp")
+
+[node name="Jeremy" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 573)
+sprite_frames = SubResource("SpriteFrames_mb3h2")
+animation = &"Speaking"
+autoplay = "Speaking"
+frame_progress = 0.692476
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 28.0
+offset_right = 554.0
+offset_bottom = 681.0
+scale = Vector2(1.13316, 0.659509)
+theme_override_font_sizes/font_size = 20
+text = "Hello, I am Jeremy, no I am not Steve. Welcome to Roguelike Rhythm. A Rhythm Game Roguelike that uses 8 keys instead of 4. The Default Key Settings are Num Keys (On the side)
+
+
+
+
+
+
+
+
+
+
+
+
+Watch out for the creature, it watches us all"
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
