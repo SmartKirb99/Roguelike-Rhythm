@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3a8nr76a8gw0"]
+
+[ext_resource type="Texture2D" uid="uid://dak8bmj3knekf" path="res://RoguelikeRhythmAssets/Cards/For Money Note/Raise.png" id="1_r1ck3"]
+[ext_resource type="Script" path="res://Scenes/Main/MoveCard.gd" id="2_kh8br"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Good Card 2" type="Sprite2D" parent="."]
+position = Vector2(534.5, 819)
+scale = Vector2(3.24671, 3.24671)
+texture = ExtResource("1_r1ck3")
+script = ExtResource("2_kh8br")
+
+[node name="Good Card 3" type="Sprite2D" parent="."]
+position = Vector2(927, 817)
+scale = Vector2(3.24671, 3.24671)
+texture = ExtResource("1_r1ck3")
+script = ExtResource("2_kh8br")
+
+[node name="Good Card 1" type="Sprite2D" parent="."]
+position = Vector2(142, 825)
+scale = Vector2(3.24671, 3.24671)
+texture = ExtResource("1_r1ck3")
+script = ExtResource("2_kh8br")

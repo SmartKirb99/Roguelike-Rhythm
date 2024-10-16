@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cv011vmih5hd8"]
+[gd_scene load_steps=22 format=3 uid="uid://cv011vmih5hd8"]
 
 [ext_resource type="Script" path="res://Scenes/SaveSelect/RerouteToTitle.gd" id="1_sb1ox"]
 [ext_resource type="Texture2D" uid="uid://b2wuy2wt1envr" path="res://RoguelikeRhythmAssets/Keys/Up Key Block.png" id="2_ktdae"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://Scenes/Main/DownKeyBlockSpriteChange.gd" id="12_3pkob"]
 [ext_resource type="Script" path="res://Scenes/Main/Down-leftKeyBlockSpriteChange.gd" id="13_421fy"]
 [ext_resource type="Script" path="res://Scenes/Main/Down-rightKeyBlockSpriteChange.gd" id="17_26orp"]
+[ext_resource type="Script" path="res://Scenes/Main/NextTutor.gd" id="20_stgm7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mb3h2"]
 resource_name = "Speaking"
@@ -105,7 +106,7 @@ position = Vector2(40, 573)
 sprite_frames = SubResource("SpriteFrames_mb3h2")
 animation = &"Speaking"
 autoplay = "Speaking"
-frame_progress = 0.692476
+frame_progress = 0.76734
 
 [node name="TextEdit" type="TextEdit" parent="."]
 layout_mode = 0
@@ -138,3 +139,12 @@ drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 wrap_mode = 1
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1107.0
+offset_top = 619.0
+offset_right = 1152.0
+offset_bottom = 650.0
+text = "Next"
+script = ExtResource("20_stgm7")

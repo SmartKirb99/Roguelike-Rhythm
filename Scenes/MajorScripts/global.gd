@@ -2,7 +2,9 @@ extends Node
 
 var whatSave = ""
 var newSave = ""
-
+var upTile
+var forwardTile
+var downTile
 var run_character = "Guy"
 var new_note_tiles_complete: int = 0
 var boss_tiles_complete: int = 0

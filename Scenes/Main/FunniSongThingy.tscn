@@ -1,19 +1,27 @@
-[gd_scene load_steps=26 format=3 uid="uid://blnunfqghx3p0"]
+[gd_scene load_steps=34 format=3 uid="uid://blnunfqghx3p0"]
 
 [ext_resource type="Texture2D" uid="uid://svfffqfgbjfd" path="res://RoguelikeRhythmAssets/Keys/Down Key Block.png" id="1_3clay"]
 [ext_resource type="Texture2D" uid="uid://b2wuy2wt1envr" path="res://RoguelikeRhythmAssets/Keys/Up Key Block.png" id="2_ncjxj"]
 [ext_resource type="Script" path="res://Scenes/Main/TransformDown.gd" id="2_xs7vn"]
 [ext_resource type="Texture2D" uid="uid://begvqbpe7so5q" path="res://RoguelikeRhythmAssets/Keys/Left Key Block.png" id="3_kv2jw"]
+[ext_resource type="Script" path="res://Scenes/Main/DownSpriteChange.gd" id="4_sprm5"]
 [ext_resource type="Script" path="res://Scenes/Main/CameraMovement.gd" id="5_2ntkt"]
 [ext_resource type="Texture2D" uid="uid://dsnn85ecvh6s1" path="res://Images/Background.png" id="5_fq7eu"]
+[ext_resource type="Script" path="res://Scenes/Main/UpSpriteChange.gd" id="6_eeswk"]
 [ext_resource type="Texture2D" uid="uid://bg62cr6opxw5s" path="res://Images/TheCreatureSaysHi.png" id="6_jov1p"]
 [ext_resource type="Texture2D" uid="uid://d3012hfopjkpu" path="res://RoguelikeRhythmAssets/Keys/Right Key Block.png" id="6_prwh2"]
+[ext_resource type="Script" path="res://Scenes/Main/LeftSpriteChange.gd" id="7_kdl1t"]
 [ext_resource type="Script" path="res://Scenes/Main/TrueCameraMovement.gd" id="7_plys5"]
 [ext_resource type="Texture2D" uid="uid://cft6wocjyh3n7" path="res://RoguelikeRhythmAssets/Keys/Up-Right Key Block.png" id="7_seh6k"]
 [ext_resource type="Texture2D" uid="uid://dqey11ydgoej0" path="res://RoguelikeRhythmAssets/Keys/Up-Left Key Block.png" id="8_6bxp4"]
 [ext_resource type="Texture2D" uid="uid://bdtfvptiougn0" path="res://RoguelikeRhythmAssets/Keys/Down-Right Key Block.png" id="8_n5qlh"]
 [ext_resource type="Script" path="res://Scenes/SaveSelect/RerouteToTitle.gd" id="9_ftre2"]
+[ext_resource type="Script" path="res://Scenes/Main/RightSpriteChange.gd" id="10_1pv18"]
+[ext_resource type="Script" path="res://Scenes/Main/DownRightSpriteChange.gd" id="10_h0csq"]
 [ext_resource type="Texture2D" uid="uid://b76alg4eclok5" path="res://RoguelikeRhythmAssets/Keys/Down-Left Key Block.png" id="10_uhgsl"]
+[ext_resource type="Script" path="res://Scenes/Main/DownLeftSpriteSwap.gd" id="11_q4orb"]
+[ext_resource type="Script" path="res://Scenes/Main/UpRightSpriteChange.gd" id="12_gbk2g"]
+[ext_resource type="Script" path="res://Scenes/Main/UpLeftSpriteChange.gd" id="13_ccumc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bwl7h"]
 panorama = ExtResource("5_fq7eu")
@@ -22,7 +30,7 @@ panorama = ExtResource("5_fq7eu")
 sky_material = SubResource("PanoramaSkyMaterial_bwl7h")
 
 [sub_resource type="Environment" id="Environment_ne4w6"]
-background_mode = 2
+background_mode = 1
 sky = SubResource("Sky_wk72a")
 sky_rotation = Vector3(0, 3.14159, 0)
 
@@ -61,6 +69,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="Down/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("1_3clay")
+script = ExtResource("4_sprm5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Down/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
@@ -77,6 +86,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="Up/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("2_ncjxj")
+script = ExtResource("6_eeswk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Up/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
@@ -93,6 +103,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="Left/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("3_kv2jw")
+script = ExtResource("7_kdl1t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Left/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
@@ -109,6 +120,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="Right/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("6_prwh2")
+script = ExtResource("10_1pv18")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Right/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
@@ -125,6 +137,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="UpRight/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("7_seh6k")
+script = ExtResource("12_gbk2g")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="UpRight/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
@@ -141,6 +154,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="DownRight/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("8_n5qlh")
+script = ExtResource("10_h0csq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="DownRight/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
@@ -157,6 +171,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="UpLeft/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("8_6bxp4")
+script = ExtResource("13_ccumc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="UpLeft/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
@@ -173,6 +188,7 @@ shape = SubResource("SphereShape3D_jul3d")
 [node name="Sprite3D" type="Sprite3D" parent="DownLeft/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 0.892814, 0.450426, 0, -0.450426, 0.892814, 0, 0.190884, 0.495416)
 texture = ExtResource("10_uhgsl")
+script = ExtResource("11_q4orb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="DownLeft/CollisionShape3D/Sprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
