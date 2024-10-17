@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://4ts2rsb4irlc"]
+[gd_scene load_steps=16 format=3 uid="uid://4ts2rsb4irlc"]
 
 [ext_resource type="Script" path="res://Scenes/Main/ReadData.gd" id="1_h8b88"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="2_3ga0y"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Scenes/Main/RandomNote2.gd" id="10_s8d63"]
 [ext_resource type="Script" path="res://Scenes/Main/RandomNote3.gd" id="11_cr25h"]
 [ext_resource type="Script" path="res://Scenes/Main/ResetTiles.gd" id="13_uakps"]
+[ext_resource type="Script" path="res://Scenes/Main/UpButton.gd" id="14_imc8f"]
+[ext_resource type="Script" path="res://Scenes/Main/ForwardButton.gd" id="15_aq2qb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -107,21 +109,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Op1" type="Sprite2D" parent="Character/Next Tiles"]
+[node name="Up" type="Sprite2D" parent="Character/Next Tiles"]
 z_index = 1
 position = Vector2(1031, 211)
 scale = Vector2(3.59433, 1.20747)
 texture = ExtResource("8_4igvq")
 script = ExtResource("9_ex0mu")
 
-[node name="Op2" type="Sprite2D" parent="Character/Next Tiles"]
+[node name="Forward" type="Sprite2D" parent="Character/Next Tiles"]
 z_index = 1
 position = Vector2(1035, 380)
 scale = Vector2(3.59433, 1.20747)
 texture = ExtResource("8_4igvq")
 script = ExtResource("10_s8d63")
 
-[node name="Op3" type="Sprite2D" parent="Character/Next Tiles"]
+[node name="Down" type="Sprite2D" parent="Character/Next Tiles"]
 z_index = 1
 position = Vector2(1029, 547)
 scale = Vector2(3.59433, 1.20747)
@@ -164,6 +166,7 @@ offset_top = 233.0
 offset_right = 985.0
 offset_bottom = 264.0
 text = "Up"
+script = ExtResource("14_imc8f")
 
 [node name="Forward" type="Button" parent="Choice Holder"]
 offset_left = 939.0
@@ -171,6 +174,7 @@ offset_top = 403.0
 offset_right = 1012.0
 offset_bottom = 434.0
 text = "Forward"
+script = ExtResource("15_aq2qb")
 
 [node name="Down" type="Button" parent="Choice Holder"]
 offset_left = 935.0

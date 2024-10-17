@@ -7,6 +7,4 @@ func _ready():
 
 # Function to handle the button press
 func _on_Button_pressed():
-	# Change the scene to the save screen
-	Global.directionPlayerGoing = "none"
-	get_tree().change_scene_to_file("res://Scenes/SaveSelect/SaveMenu.tscn")
+	Global.directionPlayerGoing = "Up"

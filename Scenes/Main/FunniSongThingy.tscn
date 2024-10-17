@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://blnunfqghx3p0"]
+[gd_scene load_steps=51 format=3 uid="uid://blnunfqghx3p0"]
 
 [ext_resource type="Texture2D" uid="uid://svfffqfgbjfd" path="res://RoguelikeRhythmAssets/Keys/Down Key Block.png" id="1_3clay"]
 [ext_resource type="Texture2D" uid="uid://b2wuy2wt1envr" path="res://RoguelikeRhythmAssets/Keys/Up Key Block.png" id="2_ncjxj"]
@@ -22,6 +22,26 @@
 [ext_resource type="Script" path="res://Scenes/Main/DownLeftSpriteSwap.gd" id="11_q4orb"]
 [ext_resource type="Script" path="res://Scenes/Main/UpRightSpriteChange.gd" id="12_gbk2g"]
 [ext_resource type="Script" path="res://Scenes/Main/UpLeftSpriteChange.gd" id="13_ccumc"]
+[ext_resource type="Texture2D" uid="uid://ex81fe2iqjq0" path="res://RoguelikeRhythmAssets/Extras/Bad.png" id="19_3ioq0"]
+[ext_resource type="Texture2D" uid="uid://cbrvlxk7ktr2c" path="res://RoguelikeRhythmAssets/Extras/Good.png" id="20_uvsn2"]
+[ext_resource type="Texture2D" uid="uid://dcrugbmmjimdh" path="res://RoguelikeRhythmAssets/Extras/sprite_0.png" id="23_3wt8y"]
+[ext_resource type="Texture2D" uid="uid://bjvq1fv2nkjh0" path="res://RoguelikeRhythmAssets/Extras/sprite_1.png" id="24_csei6"]
+[ext_resource type="Texture2D" uid="uid://c46dfvg4juwx4" path="res://RoguelikeRhythmAssets/Extras/sprite_2.png" id="25_1e7r6"]
+[ext_resource type="Texture2D" uid="uid://oojaa5iqu21r" path="res://RoguelikeRhythmAssets/Extras/sprite_3.png" id="26_tjw51"]
+[ext_resource type="Texture2D" uid="uid://d3bkg13dgdb1y" path="res://RoguelikeRhythmAssets/Extras/sprite_4.png" id="27_ex3b3"]
+[ext_resource type="Texture2D" uid="uid://um65e2gtsfvb" path="res://RoguelikeRhythmAssets/Extras/sprite_5.png" id="28_8y3he"]
+[ext_resource type="Texture2D" uid="uid://dq8ch6uisu0hf" path="res://RoguelikeRhythmAssets/Extras/sprite_6.png" id="29_c2jwq"]
+[ext_resource type="Texture2D" uid="uid://o6da0svv5yh4" path="res://RoguelikeRhythmAssets/Extras/sprite_7.png" id="30_0jrdy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bwenc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lb6ju"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.295867, 0.295866, 0.295866, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g55h0"]
+material = SubResource("StandardMaterial3D_lb6ju")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bwl7h"]
 panorama = ExtResource("5_fq7eu")
@@ -54,7 +74,172 @@ albedo_color = Color(0.192157, 0.168627, 1, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_l5xvb"]
 material = SubResource("StandardMaterial3D_8nqmo")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_sseqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_3wt8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_csei6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_1e7r6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_tjw51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ex3b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_8y3he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_c2jwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0jrdy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r0cc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfowl"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.972549)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ivy74"]
+material = SubResource("StandardMaterial3D_pfowl")
+
 [node name="Node3D" type="Node3D"]
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(-5.18417e-07, 0, -1, 0, 7.92228, 0, 11.86, 0, -4.37114e-08, 5.30132, 1.75724, 6.50532)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_bwenc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall/CollisionShape3D"]
+transform = Transform3D(1, 0, -2.22045e-16, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_g55h0")
+skeleton = NodePath("../..")
+
+[node name="Sprite3D" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 4.26326e-13, 0, 0.5, -0.138675, 0.104771, 0.512462)
+texture = ExtResource("8_6bxp4")
+script = ExtResource("13_ccumc")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 4.83169e-13, 0, 0.5, 0.0101879, 0.104771, 0.512458)
+texture = ExtResource("2_ncjxj")
+script = ExtResource("6_eeswk")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 4.83169e-13, 0, 0.5, 0.157994, 0.104771, 0.512458)
+texture = ExtResource("7_seh6k")
+script = ExtResource("12_gbk2g")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 5.40012e-13, 0, 0.5, 0.157994, -0.0412941, 0.512458)
+texture = ExtResource("6_prwh2")
+script = ExtResource("10_1pv18")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 5.96856e-13, 0, 0.5, 0.157994, -0.184859, 0.512458)
+texture = ExtResource("8_n5qlh")
+script = ExtResource("10_h0csq")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 7.10543e-13, 0, 0.5, 0.00882214, -0.184859, 0.512458)
+texture = ExtResource("1_3clay")
+script = ExtResource("4_sprm5")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 7.10543e-13, 0, 0.5, -0.138982, -0.184859, 0.512462)
+texture = ExtResource("10_uhgsl")
+script = ExtResource("11_q4orb")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Wall"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 8.2423e-13, 0, 0.5, -0.137266, -0.046381, 0.512464)
+texture = ExtResource("3_kv2jw")
+script = ExtResource("7_kdl1t")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(11.86, 5.3563e-07, -4.37114e-08, -5.18417e-07, -5.3563e-07, -1, -5.18417e-07, 12.2538, -4.37114e-08, 0.398666, 5.0125, 6.50532)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+shape = SubResource("BoxShape3D_bwenc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3/CollisionShape3D"]
+transform = Transform3D(1, 0, -2.22045e-16, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_g55h0")
+skeleton = NodePath("../..")
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(11.86, 5.3563e-07, -4.37114e-08, -5.18417e-07, -5.3563e-07, -1, -5.18417e-07, 12.2538, -4.37114e-08, 0.398666, -2.74626, 6.50532)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+shape = SubResource("BoxShape3D_bwenc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4/CollisionShape3D"]
+transform = Transform3D(1, 0, -2.22045e-16, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_g55h0")
+skeleton = NodePath("../..")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(-5.18417e-07, 0, 1, 0, 7.92228, 0, -11.86, 0, -4.37114e-08, -5.101, 1.75724, 6.50532)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("BoxShape3D_bwenc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2/CollisionShape3D"]
+transform = Transform3D(1, 0, -2.22045e-16, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_g55h0")
+skeleton = NodePath("../..")
+
+[node name="Sprite3D" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 3.12639e-13, 0, 0.5, -0.187619, 0.104771, 0.778726)
+texture = ExtResource("8_6bxp4")
+script = ExtResource("13_ccumc")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 3.69482e-13, 0, 0.5, -0.0387564, 0.104771, 0.778724)
+texture = ExtResource("2_ncjxj")
+script = ExtResource("6_eeswk")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 3.69482e-13, 0, 0.5, 0.109049, 0.104771, 0.778724)
+texture = ExtResource("7_seh6k")
+script = ExtResource("12_gbk2g")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 4.26326e-13, 0, 0.5, 0.109049, -0.0412941, 0.778724)
+texture = ExtResource("6_prwh2")
+script = ExtResource("10_1pv18")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 4.83169e-13, 0, 0.5, 0.109049, -0.184859, 0.778724)
+texture = ExtResource("8_n5qlh")
+script = ExtResource("10_h0csq")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 5.96856e-13, 0, 0.5, -0.0401222, -0.184859, 0.778724)
+texture = ExtResource("1_3clay")
+script = ExtResource("4_sprm5")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 5.96856e-13, 0, 0.5, -0.187927, -0.184859, 0.778726)
+texture = ExtResource("10_uhgsl")
+script = ExtResource("11_q4orb")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Wall2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 7.10543e-13, 0, 0.5, -0.18621, -0.0463809, 0.778728)
+texture = ExtResource("3_kv2jw")
+script = ExtResource("7_kdl1t")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ne4w6")
@@ -76,6 +261,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0334206, 1.14836, 9.68007)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Down/CollisionShape3D"]
 mesh = SubResource("SphereMesh_7vrjc")
+
+[node name="Vibe Points Bar" type="TextureProgressBar" parent="Down"]
+offset_left = 1115.0
+offset_top = -2.0
+offset_right = 1155.0
+offset_bottom = 38.0
+scale = Vector2(1, 16.32)
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("19_3ioq0")
+texture_over = ExtResource("20_uvsn2")
+tint_under = Color(1, 0, 0, 1)
+tint_over = Color(0, 1, 0, 1)
 
 [node name="Up" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32635, 3.07)
@@ -226,7 +424,7 @@ transform = Transform3D(11.86, 0, 0, 0, 11.86, 0, 0, 0, 1, 0, 4.73635, 101.191)
 texture = ExtResource("5_fq7eu")
 
 [node name="Sprite3D" type="Sprite3D" parent="Hola"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.08268, 1.37589, -36.795)
+transform = Transform3D(-1, 0, -8.74228e-08, -4.10668e-08, 0.8828, 0.469749, 7.71768e-08, 0.469749, -0.8828, -0.720939, -3.31596, -36.795)
 texture = ExtResource("6_jov1p")
 
 [node name="Button" type="Button" parent="."]
@@ -234,3 +432,62 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "Return to Title Screen (Because this doesn't yet work)"
 script = ExtResource("9_ftre2")
+
+[node name="Portls" type="Node3D" parent="."]
+
+[node name="LeftPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.53611, 0.590784, 3.03342)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.295518
+
+[node name="UpPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 0.0649009, 4.01332, 3.0295)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.0548613
+
+[node name="RightPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.72733, 0.590784, 3.03342)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.0548613
+
+[node name="DownPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(1.91069e-15, -1, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, -1, 0, -4.37114e-08, 0.00588846, -1.9213, 3.03342)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.0548613
+
+[node name="DownRightPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(3.09086e-08, -0.707107, -0.707107, -3.09086e-08, -0.707107, 0.707107, -1, 0, -4.37114e-08, 4.4318, -1.9213, 3.03342)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.0548613
+
+[node name="UpRightPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(3.09086e-08, 0.707107, -0.707107, 3.09086e-08, -0.707107, -0.707107, -1, 0, -4.37114e-08, 4.4318, 4.16535, 3.03342)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.0548613
+
+[node name="UpLeftPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(-3.09086e-08, 0.707107, 0.707107, 3.09086e-08, 0.707107, -0.707107, -1, 0, -4.37114e-08, -4.15774, 4.16535, 3.03342)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.0548613
+
+[node name="DownLeftPortl" type="AnimatedSprite3D" parent="Portls"]
+transform = Transform3D(-3.09086e-08, -0.707107, 0.707107, -3.09086e-08, 0.707107, 0.707107, -1, 0, -4.37114e-08, -4.15774, -1.66764, 3.03342)
+sprite_frames = SubResource("SpriteFrames_sseqb")
+autoplay = "default"
+frame_progress = 0.0548613
+
+[node name="Dangr Area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.467, 3.07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dangr Area"]
+shape = SubResource("SphereShape3D_r0cc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Dangr Area/CollisionShape3D"]
+mesh = SubResource("SphereMesh_ivy74")
