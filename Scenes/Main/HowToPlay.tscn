@@ -118,7 +118,8 @@ scale = Vector2(1.13316, 0.659509)
 theme_override_font_sizes/font_size = 20
 text = "Hello, I am Jeremy, no I am not Steve. Welcome to Roguelike Rhythm. A Rhythm Game Roguelike that uses 8 keys instead of 4. The Default Key Settings are Num Keys (On the side)
 
-
+Or if you don't have those keys, use the goofy layout of in the order from up-left to left, clockwise: 
+o p [ ' / . , l
 
 
 
