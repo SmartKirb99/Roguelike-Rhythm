@@ -27,16 +27,20 @@ func pick_textures():
 func change_sprite_next():
 	if tile_1 == "Boss Tile":
 		tiel = load("res://RoguelikeRhythmAssets/Tiles/Boss Tile/Boss Tile.png")
-		Global.downTile = "Boss Tile"
+		Global.DownTile = "Boss Tile"
 	elif tile_1 == "New Note Tile":
 		tiel = load("res://RoguelikeRhythmAssets/Tiles/New Note Tile/New Note Tile.png")
-		Global.downTile = "New Note Tile"
+		Global.DownTile = "New Note Tile"
 	elif tile_1 == "Note Downgrade Tile":
 		tiel = load("res://RoguelikeRhythmAssets/Tiles/Note 'Downgrade' Tile/Note 'Downgrade' Tile.png")
+		Global.DownTile = "Note Downgrade Tile"
 	elif tile_1 == "Note Upgrade Tile":
 		tiel = load("res://RoguelikeRhythmAssets/Tiles/Note Upgrade Tile/Note Upgrade Tile.png")
+		Global.DownTile = "Note Upgrade Tile"
 	elif tile_1 == "Shop Tile":
 		tiel = load("res://RoguelikeRhythmAssets/Tiles/Shop Tile/Shop Tile.png")
+		Global.DownTile = "Shop Tile"
 	elif tile_1 == "Song Tile":
 		tiel = load("res://RoguelikeRhythmAssets/Tiles/Song Tile/TheSongTile.png")
+		Global.DownTile = "Song Tile"
 	change_texture(tiel)

@@ -11,20 +11,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Good Card 2" type="Sprite2D" parent="."]
-position = Vector2(534.5, 819)
+[node name="Good Card 2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 652.0
+offset_right = 593.0
+offset_bottom = 760.0
 scale = Vector2(3.24671, 3.24671)
-texture = ExtResource("1_r1ck3")
+icon = ExtResource("1_r1ck3")
 script = ExtResource("2_kh8br")
 
-[node name="Good Card 3" type="Sprite2D" parent="."]
-position = Vector2(927, 817)
+[node name="Good Card 3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 927.0
+offset_top = 652.0
+offset_right = 985.0
+offset_bottom = 760.0
 scale = Vector2(3.24671, 3.24671)
-texture = ExtResource("1_r1ck3")
+icon = ExtResource("1_r1ck3")
 script = ExtResource("2_kh8br")
 
-[node name="Good Card 1" type="Sprite2D" parent="."]
-position = Vector2(142, 825)
+[node name="Good Card 1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 652.0
+offset_right = 200.0
+offset_bottom = 760.0
 scale = Vector2(3.24671, 3.24671)
-texture = ExtResource("1_r1ck3")
+icon = ExtResource("1_r1ck3")
 script = ExtResource("2_kh8br")

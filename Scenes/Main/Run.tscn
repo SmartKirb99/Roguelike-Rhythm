@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4ts2rsb4irlc"]
+[gd_scene load_steps=17 format=3 uid="uid://4ts2rsb4irlc"]
 
 [ext_resource type="Script" path="res://Scenes/Main/ReadData.gd" id="1_h8b88"]
 [ext_resource type="PackedScene" uid="uid://cfovinrn7h4vd" path="res://Scenes/MajorScripts/global.tscn" id="2_3ga0y"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scenes/Main/ResetTiles.gd" id="13_uakps"]
 [ext_resource type="Script" path="res://Scenes/Main/UpButton.gd" id="14_imc8f"]
 [ext_resource type="Script" path="res://Scenes/Main/ForwardButton.gd" id="15_aq2qb"]
+[ext_resource type="Script" path="res://Scenes/Main/DownButton.gd" id="16_n77ol"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -182,3 +183,4 @@ offset_top = 570.0
 offset_right = 1008.0
 offset_bottom = 601.0
 text = "Down"
+script = ExtResource("16_n77ol")

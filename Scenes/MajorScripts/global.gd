@@ -52,8 +52,7 @@ var saveT = "res://Data/Saves/SaveTest/RunData.rrsv"
 var UpTile = ""
 var ForwardTile = ""
 var DownTile = ""
-var PlayerTargetPoint
-var directionPlayerGoing = "none"
+var directionPlayerGoing = ""
 
 func _ready():
 	has_seen_warning = false
@@ -80,6 +79,7 @@ func _process(delta):
 		load_data_from_file("res://Data/Saves/Save2/RunData.rrsv")
 	elif whatSave == "3":
 		load_data_from_file("res://Data/Saves/Save3/RunData.rrsv")
+	print(last_completed_tile)
 	
 	
 
